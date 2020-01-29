@@ -1,0 +1,16 @@
+version: '3.7'
+
+volumes:
+    node_modules:
+
+services:
+  web:
+    image: node:latest
+    volumes:
+      - '.:/usr/src/docker_test/'
+      - 'node_modules:/usr/src/docker_test/node_modules'
+    working_dir: /usr/src/docker_test
+    command: npm start
+      
+    ports:
+      - '3000:3000'
